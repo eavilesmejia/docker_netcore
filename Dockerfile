@@ -1,8 +1,7 @@
 FROM microsoft/dotnet
 MAINTAINER Edgard Aviles "edgard.aviles@ooqia.com"
-COPY . /app
-WORKDIR /app
+RUN mkdir -p /opt/webapp
 ENV ASPNETCORE_URLS http://*:5004
-RUN ["dotnet", "restore"]
-EXPOSE 5004
-ENTRYPOINT ["dotnet", "run"]
+EXPOSE 5004 
+WORKDIR /opt/webapp
+CMD dotnet restore && dotnet run

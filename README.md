@@ -1,7 +1,7 @@
 # Create the image
-docker build -t kestrel .
+docker build -t dotnet_web .
 
 # Create the container based on previous image
-docker run --name myapp -d -p 127.0.0.1:5004:5004 kestrel
+docker run --name myapp -d -p 127.0.0.1:5004:5004 -v $PWD/app:/opt/webapp dotnet_web
 
 You can open http://127.0.0.1:5004 on your browser
